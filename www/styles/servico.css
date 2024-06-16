@@ -90,3 +90,17 @@ footer {
     padding: 10px;
     margin-top: 5px;
 }
+
+#eventsList li button{
+    background: #f0f0f0b0;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    padding-left: center;
+    padding-left: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 100px;
+    justify-content: space-between;
+    
+}

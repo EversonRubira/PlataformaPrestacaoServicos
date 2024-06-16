@@ -126,6 +126,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const botaoEnviarTodasSolicitacoes = document.getElementById('enviar-todas-solicitacoes');
     botaoEnviarTodasSolicitacoes.addEventListener('click', () => {
         console.log("Botão 'Enviar Todas as Solicitações' clicado");
-        document.getElementById('form-solicitacao').submit();
+
+        // Obter todas as solicitações do campo oculto
+        const solicitacoes = solicitacoesInput.value;
+
+        // Criar um novo objeto XMLHttpRequest
+        const xhr = new XMLHttpRequest();
+
+        // Configurar a requisição
+        xhr.open('POST', '/solicitacao-servico', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        // Definir o que acontece quando a resposta chega
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                console.log('Solicitações enviadas com sucesso.');
+                // Redirecionar ou mostrar mensagem de sucesso aqui
+                window.location.href = '/agradecimento.html'; // Exemplo de redirecionamento
+            } else {
+                console.error('Erro ao enviar solicitações:', xhr.statusText);
+                // Exibir mensagem de erro ou tratar o erro de alguma forma
+            }
+        };
+
+        // Definir o que acontece em caso de erro na requisição
+        xhr.onerror = function() {
+            console.error('Erro durante o envio das solicitações.');
+            // Exibir mensagem de erro ou tratar o erro de alguma forma
+        };
+
+        // Enviar os dados como JSON
+        xhr.send(JSON.stringify({ solicitacoes: solicitacoes }));
     });
 });

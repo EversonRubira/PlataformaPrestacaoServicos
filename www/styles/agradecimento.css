@@ -15,6 +15,7 @@ header, footer {
 main {
     padding: 20px;
     text-align: center;
+    padding: center;
 }
 
 .texto {
@@ -57,7 +58,7 @@ textarea {
 }
 
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: #d49828;
     color: #fff;
     border: none;
     padding: 10px 20px;

@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const url = require('url');
 const querystring = require('querystring');
+const connection = require('./db'); // Importando a conexão com o MySQL
 
 // Configurações do servidor
 const opt = {
@@ -92,6 +93,14 @@ const server = http.createServer((request, response) => {
                     nome: formData.nome,
                     servico: formData.servico
                 };
+                // Inserir no banco de dados
+                connection.query('INSERT INTO servicos SET ?', newService, (error, results, fields) => {
+                    if (error) {
+                        console.error('Erro ao inserir serviço no banco de dados:', error);
+                        return;
+                    }
+                    console.log('Serviço inserido com sucesso no banco de dados.');
+                });
                 services.push(newService);
                 response.writeHead(302, { 'Location': '/agradecimento.html' });
                 response.end();
@@ -107,6 +116,15 @@ const server = http.createServer((request, response) => {
                 const index = services.findIndex(service => service.id === id);
                 if (index !== -1) {
                     services[index] = { id, nome: formData.nome, servico: formData.servico };
+                    // Atualizar no banco de dados
+                    connection.query('UPDATE servicos SET nome = ?, servico = ? WHERE id = ?', 
+                                     [formData.nome, formData.servico, id], (error, results, fields) => {
+                        if (error) {
+                            console.error('Erro ao atualizar serviço no banco de dados:', error);
+                            return;
+                        }
+                        console.log('Serviço atualizado com sucesso no banco de dados.');
+                    });
                 }
                 response.writeHead(302, { 'Location': '/listar-servicos' });
                 response.end();
@@ -114,6 +132,14 @@ const server = http.createServer((request, response) => {
         } else if (pathname.startsWith('/deletar-servico/')) {
             const id = parseInt(pathname.split('/')[2], 10);
             services = services.filter(service => service.id !== id);
+            // Remover do banco de dados
+            connection.query('DELETE FROM servicos WHERE id = ?', [id], (error, results, fields) => {
+                if (error) {
+                    console.error('Erro ao deletar serviço do banco de dados:', error);
+                    return;
+                }
+                console.log('Serviço deletado com sucesso do banco de dados.');
+            });
             response.writeHead(302, { 'Location': '/listar-servicos' });
             response.end();
         }
