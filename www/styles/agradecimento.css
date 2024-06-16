@@ -2,8 +2,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
-    margin: 0;
+    margin: 50px;
     padding: 0;
+    justify-content: center; /* Centraliza horizontalmente */
+    
 }
 
 header, footer {
@@ -14,8 +16,9 @@ header, footer {
 
 main {
     padding: 20px;
-    text-align: center;
-    padding: center;
+    text-align: center; /* Centraliza o texto e elementos inline horizontalmente */
+    margin: 0 auto;     /* Centraliza o bloco principal horizontalmente */
+    max-width: 800px;   /* Limite opcional de largura para melhor controle do layout */
 }
 
 .texto {
@@ -93,5 +96,5 @@ footer {
     bottom: 0;
     color: rgb(8, 8, 8);
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
+    
 }
