@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Prestação de Serviços</title>
+    <link rel="stylesheet" href="styles/servico.css">
+    <script src="./scripts/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Plataforma de Prestação de Serviços</h1>
+        <h2>Solicitar Serviço</h2>
+    </header>
+    <main>
+        <section id="solicitacao-servico">
+            <form id="form-solicitacao" action="/solicitacao-servico" method="post">
+                <div class="form-group">
+                    <label for="servico">Tipo de Serviço:</label>
+                    <select id="servico" name="servico" required>
+                        <option value="">Selecione o tipo de serviço</option>
+                        <!-- Opções preenchidas dinamicamente pelo JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="profissao">Profissão:</label>
+                    <select id="profissao" name="profissao" required>
+                        <option value="">Selecione a profissão desejada</option>
+                        <!-- Opções preenchidas dinamicamente pelo JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deseja-orcamento">Deseja orçamento?</label>
+                    <input type="checkbox" id="deseja-orcamento" name="desejaOrcamento">
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição do Serviço:</label>
+                    <textarea id="descricao" name="descricao" rows="4" required></textarea>
+                </div>
+                <div class="form-group" id="grupo-valor-proposta">
+                    <label for="valor-proposta">Valor da proposta a pagar:</label>
+                    <input type="number" id="valor-proposta" name="valorProposta" step="0.01" min="0" placeholder="Valor em euros">
+                </div>
+                <button type="button" id="adicionar-solicitacao">Adicionar Solicitação</button>
+            </form>
+        </section>
+        <hr>
+        <section id="lista-solicitacoes">
+            <h2>Solicitações de Serviço</h2>
+            <ul id="eventsList"></ul>
+            <input type="hidden" id="solicitacoes" name="solicitacoes">
+            <button type="button" id='enviar-todas-solicitacoes'>Enviar Todas as Solicitações</button>
+        </section>
+        <div class="image-container">
+            <img src="images/ferramentascentro.jpg" alt="Imagem de cadastro">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Plataforma de Prestação de Serviços</p>
+    </footer>
+</body>
+</html>
+

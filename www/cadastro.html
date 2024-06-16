@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href="styles/cadastro.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Plataforma de Prestação de Serviços</h1>
+        <h2>Cadastro de Cliente</h2>
+    </header>
+    <main>
+        <form id="form-cadastro-cliente" action="/cadastro" method="post">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" pattern="\d{9}" required>
+            </div>
+            <div class="form-group">
+                <div>
+                    <label for="ckb_profissao">
+                        <input type="checkbox" id="ckb_profissao" name="ckb_profissao" value="Profissao">
+                        Profissional
+                    </label>
+                </div>
+                <br>
+                <div class="form-group" id="group_profissao">
+                    <label for="txt_profissao">Profissão:</label>
+                    <input type="text" id="txt_profissao" name="profissao">
+                </div>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <div class="image-container">
+            <img src="images/ferramentascentro.jpg" alt="Imagem de cadastro">
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Plataforma de Prestação de Serviços</p>
+    </footer>
+    <script src="./scripts/cadastro.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

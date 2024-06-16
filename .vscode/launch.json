@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open cadastro.html",
+            "file": "c:\\workspace\\IPS\\2-Semestre\\ProgramacaoWeb\\Trabalho Projeto PW\\www\\cadastro.html"
+        },
+        {
+            "type": "node-terminal",
+            "name": "JavaScript Debug Terminal",
+            "request": "launch",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
