@@ -121,5 +121,5 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(opt.default.port, () => {
-    console.log(`Rodando na porta ${opt.default.port}`);
+    console.log(`Rodando na porta ${opt.default.port}`); 
 });
