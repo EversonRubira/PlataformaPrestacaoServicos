@@ -3,8 +3,8 @@ const mysql = require('mysql');
 const fs = require('fs');
 
 // Lendo as opções de conexão do arquivo JSON
-const rawdata = fs.readFileSync('connection-options.json');
-const connectionOptions = JSON.parse(rawdata);
+const rawdata = fs.readFileSync('connection-options.json'); // Leitura síncrona do arquivo de configuração
+const connectionOptions = JSON.parse(rawdata); // Parse do conteúdo JSON para um objeto JavaScript
 
 // Criando a conexão com o MySQL
 const connection = mysql.createConnection({
